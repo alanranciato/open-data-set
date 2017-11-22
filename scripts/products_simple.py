@@ -1,13 +1,14 @@
 import json
 import csv
 
-products_parsed = json.load(open('/Users/eg1169/Desktop/productdb/products.json'))
+products_parsed = json.load(open('../products.json'))
+ 
+ #../googler-data
 
 #print(stores_parsed)
 
 # open a file for writing
-
-products_data = open('/Users/eg1169/Desktop/productdb/products1.csv', 'w')
+products_data = open('../products1.csv', 'w')
 
 # create the csv writer object
 
@@ -19,11 +20,11 @@ prodName = ''
 
 for prods in products_parsed:
     try:
-      count +=1
+      
       #print(prods.values())
       if count == 0:
-        header = prods.keys()
-        #csvwriter.writerow(header)
+        header = ['sku', 'name','url','image'] #prods.keys()
+        csvwriter.writerow(header)
 
       prodName = prods['name'] or prods['description']
 
@@ -31,6 +32,7 @@ for prods in products_parsed:
       #csvwriter.writerow(prods.values())
       csvwriter.writerow([[prods['sku'], prodName.encode("utf-8"),prods['url'],prods['image']]])
 
+      count +=1
 #print ("Count %i: %s | %s | %s | %s", count, prods['sku'], prods['name'],prods['url'],prods['image'])
 
       #if count > 20:
