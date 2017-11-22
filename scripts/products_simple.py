@@ -8,7 +8,7 @@ products_parsed = json.load(open('../products.json'))
 #print(stores_parsed)
 
 # open a file for writing
-products_data = open('../products1.csv', 'w')
+products_data = open('../products2.csv', 'w')
 
 # create the csv writer object
 
@@ -30,7 +30,7 @@ for prods in products_parsed:
 
 
       #csvwriter.writerow(prods.values())
-      csvwriter.writerow([[prods['sku'], prodName.encode("utf-8"),prods['url'],prods['image']]])
+      csvwriter.writerow([prods['sku'], prodName.encode("utf-8"),prods['url'],prods['image']])
 
       count +=1
 #print ("Count %i: %s | %s | %s | %s", count, prods['sku'], prods['name'],prods['url'],prods['image'])
